@@ -16,6 +16,5 @@ Fix Birthdate display use 'Jan 1 2020' format.
 Fix Delete of Student's Profile include student_details.
 Add 3 types of Report in Menu Report
 Modify index.php, create a chart using ChartJS (dashboard like)
-
 # April Joy Gamboa
 # Dessieri Lofranco
