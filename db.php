@@ -1,8 +1,8 @@
 <?php
 class Database {
     private $host = 'localhost';
-    private $username = 'root';
-    private $password = 'helloadmin';
+    private $username = 'hmeow';
+    private $password = 'april112209';
     private $database = 'school_db';
     private $conn;
 
