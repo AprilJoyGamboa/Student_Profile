@@ -67,6 +67,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <label for="middle_name">Middle Name:</label>
         <input type="text" name= "middle_name" id="middle_name" value="<?php echo $studentData['middle_name']; ?>">
+
+        label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+            <?php 
+                echo "<option value=" . $studentData['gender'] . " selected>". ($studentData['gender'] == 1 ? "Female" : "Male") ."</option>"; 
+                if($studentData['gender'] != 1) echo '<option value="1">Female</option>';
+                if($studentData['gender'] != 0) echo '<option value="0">Male</option>';
+            ?>
+            <!-- <option value="0">Male</option>
+            <option value="1">Female</option> -->
+        </select>
+        
+        <label for="birthday">Birthdate:</label>
+        <input type="date" name="birthday" id="birthday" value="<?php echo $studentData['birthday']; ?>">
         
         <label for="last_name">Last Name:</label>
         <input type="text" name="last_name" id="last_name" value="<?php echo $studentData['last_name']; ?>">
