@@ -1,5 +1,5 @@
 <?php
-include_once("db.php");
+include_once("db.php"); // Include the Database class file
 
 class TownCity {
     private $db;
@@ -20,6 +20,7 @@ class TownCity {
             throw $e; // Re-throw the exception for higher-level handling
         }
     }
+
     public function create($data) {
         try {
             // Prepare the SQL INSERT statement
@@ -33,7 +34,7 @@ class TownCity {
             $stmt->execute();
 
             // Check if the insert was successful
-             
+
             if($stmt->rowCount() > 0)
             {
                 return $this->db->getConnection()->lastInsertId();
@@ -55,10 +56,10 @@ class TownCity {
             $stmt->bindValue(':id', $id);
             $stmt->execute();
 
-            // Fetch the town_city data as an associative array
-            $studentData = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Fetch the student data as an associative array
+            $town_city = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return $studentData;
+            return $town_city;
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
             throw $e; // Re-throw the exception for higher-level handling
@@ -68,14 +69,13 @@ class TownCity {
     public function update($id, $data) {
         try {
             $sql = "UPDATE town_city SET
-                    name = :name 
+                    name = :name
                     WHERE id = :id";
 
             $stmt = $this->db->getConnection()->prepare($sql);
             // Bind parameters
             $stmt->bindValue(':id', $data['id']);
             $stmt->bindValue(':name', $data['name']);
-        
 
             // Execute the query
             $stmt->execute();
@@ -86,6 +86,7 @@ class TownCity {
             throw $e; // Re-throw the exception for higher-level handling
         }
     }
+
     public function delete($id) {
         try {
             $sql = "DELETE FROM town_city WHERE id = :id";
@@ -105,4 +106,7 @@ class TownCity {
         }
     }
 }
+
+$town_city = new TownCity(new Database())
+
 ?>
